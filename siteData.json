@@ -11,8 +11,7 @@
         "joshua-wee": "Joshua Wee",
         "song-fang-yi": "Song Fang Yi",
         "lian-zhi-xuan": "Lian Zhi Xuan",
-        "jean-doe": "Jean Doe",
-        "james-doe": "James Doe"
+        "lam-jiu-fong": "Lam Jiu Fong"
       },
       "headingKeywords": {}
     },
@@ -132,16 +131,16 @@
       "headingKeywords": {}
     },
     {
-      "src": "team/johndoe.md",
-      "title": "John Doe's Project Portfolio Page",
+      "src": "team/jweewee.md",
+      "title": "Jweewee's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
       "headingKeywords": {}
     },
     {
-      "src": "team/jweewee.md",
-      "title": "Jweewee's Project Portfolio Page",
+      "src": "team/lamjiufong.md",
+      "title": "LamJiuFong's Project Portfolio Page",
       "headings": {
         "project-addressbook-level-3": "Project: AddressBook Level 3"
       },
