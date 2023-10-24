@@ -117,6 +117,7 @@
         "deleting-a-customer-delete": "Deleting a customer : delete",
         "editing-a-customer-edit": "Editing a customer : edit",
         "finding-persons-find": "Finding persons : find",
+        "tagging-a-customer-tag": "Tagging a customer: tag",
         "exiting-the-program-exit": "Exiting the program : exit",
         "command-summary": "Command summary"
       },
