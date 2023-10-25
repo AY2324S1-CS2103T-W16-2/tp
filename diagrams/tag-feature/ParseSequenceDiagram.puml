@@ -1,0 +1,33 @@
+@startuml
+!include ../style.puml
+
+
+participant ":TagCommandParser" as TagCommandParser LOGIC_COLOR
+participant ":UpdatePersonTagsDescriptor" as UpdatePersonTagsDescriptor LOGIC_COLOR
+participant ":TagCommand" as TagCommand LOGIC_COLOR
+
+[-> TagCommandParser : parse("tag 1 at/tall \ndt/short at/handsome")
+ref over TagCommandParser: parse arguments
+note right: This reference frame has been omitted.\n Parsing of index, tagsToAdd and tagsToDelete is performed here.
+|||
+create UpdatePersonTagsDescriptor
+TagCommandParser -> UpdatePersonTagsDescriptor
+activate UpdatePersonTagsDescriptor
+note right: Contains information of \ntagsToAdd and tagsToDelete.
+return descriptor
+|||
+TagCommandParser -> UpdatePersonTagsDescriptor: hasTagToUpdate()
+return
+
+opt no tag to update
+    [<--TagCommandParser: throws ParseException
+
+end
+|||
+create TagCommand
+    TagCommandParser -> TagCommand: new TagCommand(1, descriptor)
+    activate TagCommand
+    return command
+    [<--TagCommandParser : command
+
+@enduml

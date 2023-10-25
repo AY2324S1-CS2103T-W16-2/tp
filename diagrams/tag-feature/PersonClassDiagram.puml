@@ -1,0 +1,17 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class Person
+note right of Person
+ A person is associated to other attribute classes such as
+ <b>Name</b>, <b>Phone</b>, <b>Email</b>...
+ which are ommited here as they are irrelevant
+ when discussing the tag feature.
+end note
+Class Tag
+
+Person *--> "*" Tag
+@enduml

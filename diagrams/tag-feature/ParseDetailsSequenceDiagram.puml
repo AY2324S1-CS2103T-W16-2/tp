@@ -1,0 +1,32 @@
+@startuml
+!include ../style.puml
+
+mainframe sd parse arguments
+
+participant ":TagCommandParser" as TagCommandParser LOGIC_COLOR
+participant ":ParserUtil" as ParserUtil LOGIC_COLOR
+
+TagCommandParser -> ParserUtil: <<static>> \nparseIndex("1")
+alt valid index
+    ParserUtil --> TagCommandParser: index
+else
+    ParserUtil --> TagCommandParser: throws ParseException
+    deactivate ParserUtil
+end
+
+|||
+TagCommandParser -> TagCommandParser: parseTags("tall", "handsome")
+alt all tags valid
+    TagCommandParser --> TagCommandParser: tagsToAdd
+else
+    TagCommandParser --> TagCommandParser: throws ParseException
+end
+
+|||
+TagCommandParser -> TagCommandParser: parseTags("short")
+alt all tags valid
+    TagCommandParser --> TagCommandParser: tagsToDelete
+else
+    TagCommandParser --> TagCommandParser: throws ParseException
+end
+@enduml
