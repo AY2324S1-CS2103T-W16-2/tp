@@ -54,6 +54,8 @@
         "tag-feature": "Tag feature",
         "implementation-2": "Implementation",
         "design-considerations": "Design considerations:",
+        "proposed-appointment-feature": "[Proposed] Appointment feature",
+        "implementation-3": "Implementation",
         "proposed-undo-redo-feature": "[Proposed] Undo/redo feature",
         "proposed-implementation": "Proposed Implementation",
         "design-considerations-2": "Design considerations:",
