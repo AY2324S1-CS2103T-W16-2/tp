@@ -1,0 +1,20 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+class Person
+class Priority
+enum Level
+
+Person -->"1" Priority
+Priority -->"1" Level
+
+enum Level {
+HIGH
+MEDIUM
+LOW
+-
+}
+@enduml

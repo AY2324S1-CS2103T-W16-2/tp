@@ -1,0 +1,24 @@
+@startuml
+!include ../style.puml
+
+participant ":PriorityCommandParser" as PriorityCommandParser LOGIC_COLOR
+participant ":PriorityCommand" as PriorityCommand LOGIC_COLOR
+
+[-> PriorityCommandParser : parse("1 high")
+alt valid index
+    ref over PriorityCommandParser: parse index
+    |||
+    alt valid keyword
+        create PriorityCommand
+        PriorityCommandParser -> PriorityCommand
+        activate PriorityCommand
+        return command
+        [<--PriorityCommandParser : command
+    else invalid keyword
+        PriorityCommandParser ->[ : throws ParseException
+    end
+else invalid index
+    PriorityCommandParser ->[ : throws ParseException
+end
+
+@enduml
