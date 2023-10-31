@@ -125,6 +125,7 @@
       "headings": {
         "ezcontact": "EzContact",
         "quick-start": "Quick start",
+        "ui-layout-description": "UI Layout Description",
         "features": "Features",
         "adding-a-customer-add": "Adding a customer: add",
         "listing-all-customers-list": "Listing all customers : list",
@@ -135,7 +136,10 @@
         "updating-priority-of-a-customer-pr": "Updating priority of a customer: pr",
         "adding-a-remark-to-a-customer-remark": "Adding a remark to a customer: remark",
         "exiting-the-program-exit": "Exiting the program : exit",
-        "command-summary": "Command summary"
+        "advanced-features": "Advanced Features",
+        "managing-data": "Managing data",
+        "command-summary": "Command summary",
+        "glossary": "Glossary"
       },
       "headingKeywords": {}
     },
