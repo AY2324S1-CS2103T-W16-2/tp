@@ -1,0 +1,18 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+class Insurance
+class Person
+note right of Person
+ Other attribute classes such as
+ <b>Name</b>, <b>Phone</b>, <b>Email</b>...
+ are ommited here as they are irrelevant
+ in the current context.
+end note
+
+Person -->"*" Insurance
+
+@enduml

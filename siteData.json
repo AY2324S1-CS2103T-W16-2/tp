@@ -76,10 +76,13 @@
         "use-cases": "Use cases",
         "non-functional-requirements": "Non-Functional Requirements",
         "glossary": "Glossary",
+        "appendix-planned-enhancements": "Appendix: Planned Enhancements",
+        "appendix-effort": "Appendix: Effort",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
-        "saving-data": "Saving data"
+        "saving-data": "Saving data",
+        "feature-to-show": "Feature to show"
       },
       "headingKeywords": {}
     },

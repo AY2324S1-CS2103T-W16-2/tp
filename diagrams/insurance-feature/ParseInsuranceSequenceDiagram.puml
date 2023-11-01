@@ -1,0 +1,35 @@
+@startuml
+!include ../style.puml
+
+
+participant ": InsuranceCommandParser" as parser LOGIC_COLOR
+participant ": UpadatePersonInsuranceDescriptor" as descriptor LOGIC_COLOR
+participant ": InsuranceCommand" as command LOGIC_COLOR
+
+[-> parser : parse("1 ai/car insurance\n di/health insurance")
+|||
+ref over parser : parse arguments
+note right : Parsing of index, insurances to update and delete \nis done here and is omitted
+|||
+create descriptor
+parser -> descriptor
+note right : contains the insurances \nto add and delete from customer
+activate descriptor
+|||
+return descriptor
+|||
+parser -> descriptor : hasInsuranceToUpdate()
+return
+|||
+opt over parser : no insurance to update
+[<-- parser : throwParserException
+end
+|||
+create command
+parser -> command : new InsuranceCommand(1, descriptor)
+activate command
+|||
+return command
+
+[<--parser : command
+@enduml

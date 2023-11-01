@@ -1,0 +1,62 @@
+@startuml
+!include ../style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ": InsuranceCommand" as command LOGIC_COLOR
+participant ": CommandResult" as result LOGIC_COLOR
+participant ": UpdatePersonInsuranceDescriptor" as descriptor LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m: Model" as model MODEL_COLOR
+participant "Person" as personClass <<class>> MODEL_COLOR
+participant ": Person" as person MODEL_COLOR
+end box
+
+[-> command : execute(m)
+|||
+command -> model : m.getFilteredPersonList()
+return personList
+
+opt not in range of personList
+[<--command : throw CommandException
+end
+|||
+command -> descriptor : hasCommonInsurance()
+return hasCommonInsurance
+
+opt hasCommonInsurance
+[<--command : throws CommandException
+end
+|||
+command -> personClass : createPersonWithUpdatedInsurances(personToUpdate, insurancesToAdd, insurancesToDelete)
+activate personClass
+create person
+personClass -> person :
+activate person
+return updatedPerson
+
+return updatedPerson
+|||
+opt updatedPerson's number of insurance \nexceeds maximum insurances allowed
+[<--command : throws CommandException
+end
+|||
+command -> model : setPerson(personToUpdate, updatedPerson)
+|||
+create result
+command -> result
+activate result
+return result
+
+
+
+
+
+
+
+
+
+
+[<-- command : result
+@enduml
