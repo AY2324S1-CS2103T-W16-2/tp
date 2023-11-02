@@ -13,5 +13,5 @@ note right of Person
 end note
 Class Tag
 
-Person *--> "*" Tag
+Person --> "*" Tag
 @enduml
