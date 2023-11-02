@@ -127,6 +127,7 @@
       "title": "User Guide",
       "headings": {
         "ezcontact": "EzContact",
+        "introduction": "Introduction",
         "quick-start": "Quick start",
         "ui-layout-description": "UI Layout Description",
         "features": "Features",
@@ -136,6 +137,7 @@
         "editing-a-customer-edit": "Editing a customer : edit",
         "finding-customers-find": "Finding customers : find",
         "tagging-a-customer-tag": "Tagging a customer: tag",
+        "updating-insurance-of-a-customer-insurance": "Updating insurance of a customer: insurance",
         "updating-priority-of-a-customer-priority": "Updating priority of a customer: priority",
         "adding-a-remark-to-a-customer-remark": "Adding a remark to a customer: remark",
         "clearing-the-customer-list-clear": "Clearing the customer list : clear",
