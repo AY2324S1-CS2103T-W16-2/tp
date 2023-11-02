@@ -1,0 +1,51 @@
+@startuml
+!include ../style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ": FindCommandParser" as parser LOGIC_COLOR
+participant ": ParserUtil" as keywordParser LOGIC_COLOR
+participant ": FindCommand" as command LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "n: NameContains\nKeywordsPredicate" as namePredicate MODEL_COLOR
+participant "r: RemarkContains\nKeywordsPredicate" as remarkPredicate MODEL_COLOR
+participant "p: PersonContains\nKeywordsPredicate" as personPredicate MODEL_COLOR
+end box
+
+
+[-> parser : parse("n/Song \nr/vegetarian")
+|||
+
+parser -> keywordParser : parseNameKeyword("Song")
+activate keywordParser
+create namePredicate
+keywordParser -> namePredicate
+activate namePredicate
+return n
+return n
+|||
+
+parser -> keywordParser : parseRemarkKeyword("vegetarian")
+activate keywordParser
+create remarkPredicate
+|||
+keywordParser -> remarkPredicate
+activate remarkPredicate
+return r
+return r
+|||
+create personPredicate
+parser -> personPredicate : new PersonContainsKeywordsPredicate(n, r)
+|||
+activate personPredicate
+return p
+
+create command
+parser -> command : new FindCommand(p)
+activate command
+|||
+return command
+
+[<--parser : command
+@enduml

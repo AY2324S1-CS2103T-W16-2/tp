@@ -1,0 +1,21 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+class "<<interface>>\nPredicate" as Predicate
+class XYZContainsKeywordsPredicate
+class PersonContainsKeywordsPredicate
+class FindComand
+note left of XYZContainsKeywordsPredicate
+  XYZContainsKeywordsPredicate =
+  AddressContainsKeywordsPredicate,
+  NameContainsKeywordsPredicate, etc.
+end note
+
+XYZContainsKeywordsPredicate ..|> Predicate
+PersonContainsKeywordsPredicate --> "*" Predicate : test >
+FindComand --> "1" PersonContainsKeywordsPredicate : contains >
+
+@enduml
