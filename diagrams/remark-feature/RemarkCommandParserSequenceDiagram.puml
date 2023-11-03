@@ -1,0 +1,36 @@
+@startuml
+!include ../style.puml
+
+participant ":RemarkCommandParser" as RemarkCommandParser LOGIC_COLOR
+participant "e:Remark" as emptyRemark MODEL_COLOR
+participant "r:Remark" as remark MODEL_COLOR
+participant ":RemarkCommand" as RemarkCommand LOGIC_COLOR
+
+[-> RemarkCommandParser : parse("2 he likes pizza")
+opt Invalid index
+[<-- RemarkCommandParser : throwParserException
+end
+|||
+alt empty argument
+    create emptyRemark
+    RemarkCommandParser --> emptyRemark : new Remark("")
+    activate emptyRemark
+    return e
+|||
+else
+    create remark
+    RemarkCommandParser --> remark : new Remark(argument)
+    activate remark
+    return r
+end
+|||
+create RemarkCommand
+RemarkCommandParser --> RemarkCommand
+activate RemarkCommand
+|||
+return : command
+
+[<--RemarkCommandParser : command
+
+
+@enduml
