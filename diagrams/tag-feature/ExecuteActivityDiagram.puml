@@ -1,0 +1,21 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:User provides tags to add and delete;
+
+'Since the beta syntax does not support placing the condition outside the
+'diamond we place it as the true branch instead.
+if () then
+    :Update tags of targeted customer;
+    if () then
+    :Save updated customer to Model;
+    else ([updated customer's tag set unchanged or invalid])
+        stop
+    endif
+    stop
+else ([has conflicting tags to add and delete])
+    stop
+endif
+@enduml
