@@ -1,0 +1,17 @@
+@startuml
+!include ../style.puml
+skinparam arrowThickness 1.1
+skinparam arrowColor MODEL_COLOR
+skinparam classBackgroundColor MODEL_COLOR
+
+Class PriorityCommand {
+index: Index
+priority: Priority
+execute(m: Model): CommandResult
+checkIsOldPriority(personToUpdate: Person)
+}
+
+show PriorityCommand members
+show PriorityCommand methods
+
+@enduml

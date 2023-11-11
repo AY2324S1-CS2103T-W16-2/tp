@@ -1,24 +1,28 @@
-@startuml
+'@startuml
 !include ../style.puml
 
 participant ":PriorityCommandParser" as PriorityCommandParser LOGIC_COLOR
 participant ":PriorityCommand" as PriorityCommand LOGIC_COLOR
 
 [-> PriorityCommandParser : parse("1 high")
-alt valid index
-    ref over PriorityCommandParser: parse index
-    |||
-    alt valid keyword
-        create PriorityCommand
-        PriorityCommandParser -> PriorityCommand
-        activate PriorityCommand
-        return command
-        [<--PriorityCommandParser : command
-    else invalid keyword
-        PriorityCommandParser ->[ : throws ParseException
-    end
-else invalid index
-    PriorityCommandParser ->[ : throws ParseException
+
+ref over PriorityCommandParser
+parse index and arguments
+end
+
+opt valid index and arguments
+    create PriorityCommand
+    PriorityCommandParser -> PriorityCommand : PriorityCommand(1, p)
+    activate PriorityCommand
+    note left
+    A Priority object, p, is created
+    from the parsing action above
+    if the index and arguments are valid
+    end note
+    return command
+    PriorityCommandParser -->[ : command
 end
 
 @enduml
+
+

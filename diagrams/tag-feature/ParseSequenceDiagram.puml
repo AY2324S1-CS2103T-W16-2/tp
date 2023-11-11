@@ -17,7 +17,7 @@ return descriptor
 ref over TagCommandParser: verify has tag to update
 |||
 create TagCommand
-    TagCommandParser -> TagCommand: new TagCommand(1, descriptor)
+    TagCommandParser -> TagCommand: TagCommand(1, descriptor)
     activate TagCommand
     return command
     [<--TagCommandParser : command

@@ -4,17 +4,31 @@ skinparam arrowThickness 1.1
 skinparam arrowColor MODEL_COLOR
 skinparam classBackgroundColor MODEL_COLOR
 
-class Person
-class Priority
-enum Level
+Class Person
+note left of Person
+ A person is associated to other attribute classes such as
+ <b>Name</b>, <b>Phone</b>, <b>Email</b>...
+ which are ommited here as they are irrelevant
+ when discussing about priority.
+end note
 
-Person -->"1" Priority
-Priority -->"1" Level
-
-enum Level {
+Class Level <<enumeration>> {
 HIGH
 MEDIUM
 LOW
--
+NONE
 }
+
+Class Priority {
+level: Level
+}
+
+Person --> "1" Priority
+
+show Priority members
+hide Priority methods
+
+show Level members
+hide Level methods
+
 @enduml

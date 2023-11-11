@@ -1,0 +1,27 @@
+@startuml
+!include ../style.puml
+
+mainframe sd parse index and arguments
+
+participant ":PriorityCommandParser" as PriorityCommandParser LOGIC_COLOR
+participant "ParserUtil" as ParserUtilClass <<class>> LOGIC_COLOR
+participant "p:Priority" as Priority LOGIC_COLOR
+
+PriorityCommandParser -> ParserUtilClass: parseIndex("1")
+opt invalid index
+    ParserUtilClass --> PriorityCommandParser: throws ParseException
+    PriorityCommandParser -->[: throws ParseException
+end
+    ParserUtilClass --> PriorityCommandParser: index
+    PriorityCommandParser -> ParserUtilClass: parsePriority("high")
+opt invalid argument
+    ParserUtilClass --> PriorityCommandParser: throws ParseException
+    PriorityCommandParser -->[: throws ParseException
+end
+    create Priority
+    ParserUtilClass -> Priority : Priority("high")
+    activate Priority
+    return p
+    ParserUtilClass --> PriorityCommandParser : p
+
+@enduml

@@ -1,0 +1,62 @@
+@startuml
+!include ../style.puml
+skinparam ArrowFontStyle plain
+
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":PriorityCommandParser" as PriorityCommandParser LOGIC_COLOR
+participant "p:PriorityCommand" as PriorityCommand LOGIC_COLOR
+participant "result:CommandResult" as CommandResult LOGIC_COLOR
+
+[-> LogicManager : execute("priority 1 high")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("priority 1 high")
+activate AddressBookParser
+
+create PriorityCommandParser
+AddressBookParser -> PriorityCommandParser
+activate PriorityCommandParser
+
+PriorityCommandParser --> AddressBookParser
+deactivate PriorityCommandParser
+
+AddressBookParser -> PriorityCommandParser : parse("1 high")
+activate PriorityCommandParser
+
+create PriorityCommand
+PriorityCommandParser -> PriorityCommand
+activate PriorityCommand
+
+PriorityCommand --> PriorityCommandParser : p
+deactivate PriorityCommand
+
+PriorityCommandParser --> AddressBookParser : p
+deactivate PriorityCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+PriorityCommandParser -[hidden]-> AddressBookParser
+destroy PriorityCommandParser
+
+AddressBookParser --> LogicManager : p
+deactivate AddressBookParser
+
+LogicManager -> PriorityCommand : execute()
+activate PriorityCommand
+
+
+create CommandResult
+PriorityCommand -> CommandResult
+activate CommandResult
+
+CommandResult --> PriorityCommand : result
+deactivate CommandResult
+
+PriorityCommand --> LogicManager : result
+deactivate PriorityCommand
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+PriorityCommand -[hidden]-> LogicManager
+destroy PriorityCommand
+
+[<--LogicManager : result
+deactivate LogicManager
+@enduml
