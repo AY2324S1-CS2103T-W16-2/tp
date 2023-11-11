@@ -11,6 +11,7 @@ note right of Person
  which are ommited here as they are irrelevant
  when discussing the tag feature.
 end note
+
 Class Tag
 
 Person --> "*" Tag

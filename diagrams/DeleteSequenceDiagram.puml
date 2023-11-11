@@ -65,6 +65,10 @@ deactivate CommandResult
 DeleteCommand --> LogicManager : result
 deactivate DeleteCommand
 
-[<--LogicManager
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+DeleteCommand -[hidden]-> LogicManager
+destroy DeleteCommand
+
+[<--LogicManager : result
 deactivate LogicManager
 @enduml

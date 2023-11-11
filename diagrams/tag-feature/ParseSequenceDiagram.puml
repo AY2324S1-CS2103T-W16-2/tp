@@ -7,17 +7,25 @@ participant ":UpdatePersonTagsDescriptor" as UpdatePersonTagsDescriptor LOGIC_CO
 participant ":TagCommand" as TagCommand LOGIC_COLOR
 
 [-> TagCommandParser : parse("1 at/tall \ndt/short at/handsome")
-ref over TagCommandParser: parse command arguments
+
 |||
+
+TagCommandParser -> TagCommandParser: parseArguments("1 at/tall dt/short at/handsome")
+
+|||
+
 create UpdatePersonTagsDescriptor
-TagCommandParser -> UpdatePersonTagsDescriptor
+TagCommandParser -> UpdatePersonTagsDescriptor: UpdatePersonTagsDescriptor(tagsToAdd, tagsToDelete)
 activate UpdatePersonTagsDescriptor
 return descriptor
+
 |||
-ref over TagCommandParser: verify has tag to update
+
+TagCommandParser -> TagCommandParser: verifyHasTagToUpdate(descriptor)
+
 |||
 create TagCommand
-    TagCommandParser -> TagCommand: TagCommand(1, descriptor)
+    TagCommandParser -> TagCommand: TagCommand(index, descriptor)
     activate TagCommand
     return command
     [<--TagCommandParser : command

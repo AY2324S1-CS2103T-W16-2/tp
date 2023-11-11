@@ -11,7 +11,7 @@ Class Tag
 
 TagCommand --> "1" Index
 TagCommand --> "1" UpdatePersonTagsDescriptor
-UpdatePersonTagsDescriptor --> "~* tags to add" Tag
-UpdatePersonTagsDescriptor --> "~* tags to delete" Tag
+UpdatePersonTagsDescriptor --> "~* tagsToAdd" Tag
+UpdatePersonTagsDescriptor --> "~* tagsToDelete" Tag
 
 @enduml

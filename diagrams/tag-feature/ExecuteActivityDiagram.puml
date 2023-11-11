@@ -3,19 +3,27 @@ skin rose
 skinparam ActivityFontSize 15
 skinparam ArrowFontSize 12
 start
-:User provides tags to add and delete;
+:User provides index of the targeted
+customer in the displayed list;
 
-'Since the beta syntax does not support placing the condition outside the
-'diamond we place it as the true branch instead.
 if () then
-    :Update tags of targeted customer;
+    :User provides tags to add to and/or \ndelete from the targeted customer;
+
+    'Since the beta syntax does not support placing the condition outside the
+    'diamond we place it as the true branch instead.
     if () then
-    :Save updated customer to Model;
-    else ([updated customer's tag set unchanged or invalid])
+        :System update tags of targeted customer;
+        if () then
+        :System saves updated customer to Model;
+        else ([updated customer's tag set is not valid])
+            stop
+        endif
+        stop
+    else ([tags provided is not valid])
         stop
     endif
-    stop
-else ([has conflicting tags to add and delete])
+else ([index provided is not valid])
     stop
 endif
+
 @enduml

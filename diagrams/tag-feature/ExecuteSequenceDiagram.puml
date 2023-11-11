@@ -16,7 +16,7 @@ end box
 
 TagCommand -> TagCommand: verifyCommandExecutable(m)
 |||
-ref over TagCommand, Model: retrieve information required
+ref over TagCommand, Model: retrieve information required\n(i.e. personToUpdate, tagsToAdd, and tagsToDelete)
 |||
 
 TagCommand -> PersonClass: createPersonWithUpdatedTags(personToUpdate, tagsToAdd, tagsToDelete)

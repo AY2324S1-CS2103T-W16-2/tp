@@ -57,6 +57,6 @@ deactivate TagCommand
 TagCommand -[hidden]-> LogicManager
 destroy TagCommand
 
-[<--LogicManager
+[<--LogicManager : result
 deactivate LogicManager
 @enduml
