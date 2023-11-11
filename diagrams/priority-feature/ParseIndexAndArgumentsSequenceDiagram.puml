@@ -1,7 +1,7 @@
 @startuml
 !include ../style.puml
 
-mainframe sd parse index and arguments
+mainframe sd parse index and level
 
 participant ":PriorityCommandParser" as PriorityCommandParser LOGIC_COLOR
 participant "ParserUtil" as ParserUtilClass <<class>> LOGIC_COLOR
@@ -14,7 +14,7 @@ opt invalid index
 end
     ParserUtilClass --> PriorityCommandParser: index
     PriorityCommandParser -> ParserUtilClass: parsePriority("high")
-opt invalid argument
+opt invalid priority
     ParserUtilClass --> PriorityCommandParser: throws ParseException
     PriorityCommandParser -->[: throws ParseException
 end

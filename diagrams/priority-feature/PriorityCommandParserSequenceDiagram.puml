@@ -7,17 +7,17 @@ participant ":PriorityCommand" as PriorityCommand LOGIC_COLOR
 [-> PriorityCommandParser : parse("1 high")
 
 ref over PriorityCommandParser
-parse index and arguments
+parse index and priority
 end
 
-opt valid index and arguments
+opt valid index and priority
     create PriorityCommand
     PriorityCommandParser -> PriorityCommand : PriorityCommand(1, p)
     activate PriorityCommand
     note left
     A Priority object, p, is created
     from the parsing action above
-    if the index and arguments are valid
+    if the provided index and priority are valid
     end note
     return command
     PriorityCommandParser -->[ : command

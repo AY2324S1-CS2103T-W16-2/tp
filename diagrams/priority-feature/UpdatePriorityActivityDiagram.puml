@@ -4,17 +4,17 @@ skinparam ActivityFontSize 13
 skinparam ArrowFontSize 12
 
 start
-:User provides the priority level to assign to a person;
+:User provides the priority to assign to a person;
 
 if () then
-    :Update priority level of the target person ;
+    :Update priority of the target person ;
     if () then
     :Save updated person to model;
-    else ([updated person's priority level is unchanged])
+    else ([updated person's priority is unchanged])
         stop
     endif
     stop
-else ([provided priority level is invalid])
+else ([provided priority is invalid])
     stop
 endif
 @enduml
