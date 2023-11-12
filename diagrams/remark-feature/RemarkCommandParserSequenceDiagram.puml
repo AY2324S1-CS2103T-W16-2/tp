@@ -13,13 +13,13 @@ end
 |||
 alt empty argument
     create emptyRemark
-    RemarkCommandParser --> emptyRemark : new Remark("")
+    RemarkCommandParser --> emptyRemark : Remark("")
     activate emptyRemark
     return e
 |||
 else
     create remark
-    RemarkCommandParser --> remark : new Remark(argument)
+    RemarkCommandParser --> remark : Remark(argument)
     activate remark
     return r
 end
@@ -28,7 +28,7 @@ create RemarkCommand
 RemarkCommandParser --> RemarkCommand
 activate RemarkCommand
 |||
-return : command
+return command
 
 [<--RemarkCommandParser : command
 

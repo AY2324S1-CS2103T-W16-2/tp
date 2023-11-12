@@ -36,13 +36,13 @@ return r
 return r
 |||
 create personPredicate
-parser -> personPredicate : new PersonContainsKeywordsPredicate(n, r)
+parser -> personPredicate : PersonContainsKeywordsPredicate(n, r)
 |||
 activate personPredicate
 return p
 
 create command
-parser -> command : new FindCommand(p)
+parser -> command : FindCommand(p)
 activate command
 |||
 return command

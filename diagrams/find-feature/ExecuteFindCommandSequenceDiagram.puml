@@ -12,13 +12,14 @@ end box
 
 [-> command : execute(m)
 |||
-command -> model : m.updateFilterPersonList(personPredicate)
+command -> model : updateFilterPersonList(personPredicate)
 |||
-command -> model : m.getFilteredPersonList().size()
-return size
+command -> model : getFilteredPersonList()
+|||
+return
 |||
 create result
-command -> result : new CommandResult(size)
+command -> result
 activate result
 return result
 
