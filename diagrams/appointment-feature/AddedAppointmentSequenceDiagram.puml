@@ -1,0 +1,78 @@
+@startuml
+!include ../style.puml
+
+box Logic Logic LOGIC_COLOR_T1
+participant ":LogicManager" as LogicManager LOGIC_COLOR
+participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
+participant ":AppointmentCommandParser" as AppointmentCommandParser LOGIC_COLOR
+participant "ac:AppointmentCommand" as AppointmentCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant ":Model" as Model MODEL_COLOR
+participant "a:Appointment" as Appointment MODEL_COLOR
+end box
+
+[-> LogicManager : execute("addappt 1 d/2025-12-12 t/12:55 v/Clementi Mall")
+activate LogicManager
+
+LogicManager -> AddressBookParser : parseCommand("addappt 1 d/2025-12-12 t/12:55 v/Clementi Mall")
+activate AddressBookParser
+
+create AppointmentCommandParser
+AddressBookParser -> AppointmentCommandParser
+activate AppointmentCommandParser
+
+AppointmentCommandParser --> AddressBookParser
+deactivate AppointmentCommandParser
+
+AddressBookParser -> AppointmentCommandParser : parse("addappt 1 d/2025-12-12 t/12:55 v/Clementi Mall")
+activate AppointmentCommandParser
+
+create Appointment
+AppointmentCommandParser -> Appointment : Appointment("12 Dec 2025", "1255", "Clementi Mall")
+activate Appointment
+
+Appointment --> AppointmentCommandParser : a
+deactivate Appointment
+
+create AppointmentCommand
+AppointmentCommandParser -> AppointmentCommand : AppointmentCommand(1, a)
+activate AppointmentCommand
+
+AppointmentCommand --> AppointmentCommandParser : ac
+deactivate AppointmentCommand
+
+AppointmentCommandParser --> AddressBookParser : ac
+deactivate AppointmentCommandParser
+'Hidden arrow to position the destroy marker below the end of the activation bar.
+AppointmentCommandParser -[hidden]-> AddressBookParser
+destroy AppointmentCommandParser
+
+AddressBookParser --> LogicManager : ac
+deactivate AddressBookParser
+
+LogicManager -> AppointmentCommand : execute()
+activate AppointmentCommand
+
+AppointmentCommand -> Model : setPerson(PersonToEdit, editedPerson)
+activate Model
+
+Model --> AppointmentCommand
+deactivate Model
+
+create CommandResult
+AppointmentCommand -> CommandResult : CommandResult(successMsg)
+activate CommandResult
+
+CommandResult --> AppointmentCommand
+deactivate CommandResult
+
+AppointmentCommand --> LogicManager
+deactivate AppointmentCommand
+
+[<--LogicManager
+destroy AppointmentCommand
+deactivate LogicManager
+@enduml

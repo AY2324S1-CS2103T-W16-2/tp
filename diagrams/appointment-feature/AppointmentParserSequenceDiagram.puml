@@ -1,0 +1,27 @@
+@startuml
+!include ../style.puml
+
+
+participant ":AppointmentCommandParser" as AppointmentCommandParser LOGIC_COLOR
+participant ":AppointmentCommand" as AppointmentCommand LOGIC_COLOR
+participant ":Appointment" as Appointment LOGIC_COLOR
+
+[-> AppointmentCommandParser : parse("1 d/2025-12-12 t/12:55 v/Clementi Mall")
+
+|||
+
+ref over AppointmentCommandParser : parse arguments
+note right : Parsing of index, date, time and venue \nis done here and omitted
+|||
+
+create Appointment
+    AppointmentCommandParser -> Appointment: Appointment("12 Dec 2025", "1255", "Clementi Mall")
+    activate Appointment
+    return appointment
+create AppointmentCommand
+    AppointmentCommandParser -> AppointmentCommand: AppointmentCommand(index, appointment)
+    activate AppointmentCommand
+    return command
+    [<--AppointmentCommandParser : command
+
+@enduml

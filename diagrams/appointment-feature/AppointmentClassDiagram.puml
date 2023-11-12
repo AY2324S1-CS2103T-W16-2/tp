@@ -1,0 +1,33 @@
+@startuml
+skinparam arrowThickness 1.1
+skinparam arrowColor #000000
+skinparam classBackgroundColor MODEL_COLOR
+skinparam classAttributeIconSize 0
+show fields
+
+title Default Appointment
+
+object "__:Person__" as normalHuman {
+}
+
+object "__:Appointment__" as emptyAppointment {
+    - date = "-"
+    - time = ""
+    - venue = ""
+}
+
+object "__:AppointmentCount__" as emptyAppointmentCount {
+    - count = 0
+}
+
+normalHuman --> emptyAppointment
+normalHuman --> emptyAppointmentCount
+
+note right of normalHuman
+ Other attribute classes such as
+ <b>Name</b>, <b>Phone</b>, <b>Email</b>...
+ are ommited here as they are irrelevant
+ in the current context.
+end note
+
+@enduml

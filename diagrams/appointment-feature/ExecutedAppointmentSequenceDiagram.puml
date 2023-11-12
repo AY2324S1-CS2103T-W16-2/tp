@@ -1,0 +1,43 @@
+@startuml
+!include ../style.puml
+
+box Logic LOGIC_COLOR_T1
+participant ":AppointmentCommand" as AppointmentCommand LOGIC_COLOR
+participant ":CommandResult" as CommandResult LOGIC_COLOR
+end box
+
+box Model MODEL_COLOR_T1
+participant "m:Model" as Model MODEL_COLOR
+participant "Person" as PersonClass <<class>> MODEL_COLOR
+participant ":Person" as Person MODEL_COLOR
+end box
+
+[-> AppointmentCommand: execute(m)
+
+AppointmentCommand -> AppointmentCommand: verifyCommandExecutable(m)
+|||
+ref over AppointmentCommand, Model: retrieve information required\n(i.e. personToEdit, appointment)
+|||
+
+AppointmentCommand -> PersonClass: createPersonWithEditedAppointment(personToUpdate, appointment)
+activate PersonClass
+
+create Person
+PersonClass -> Person
+activate Person
+return editedPerson
+
+return editedPerson
+|||
+ref over AppointmentCommand: verify editedPerson is valid
+|||
+AppointmentCommand -> Model: setPerson(personToEdit, editedPerson)
+|||
+|||
+create CommandResult
+AppointmentCommand -> CommandResult
+activate CommandResult
+return result
+
+[<-- AppointmentCommand: result
+@enduml

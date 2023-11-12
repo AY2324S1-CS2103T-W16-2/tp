@@ -59,8 +59,9 @@
         "insurance-feature": "Insurance Feature",
         "implementation-3": "Implementation",
         "design-considerations-3": "Design Considerations:",
-        "proposed-appointment-feature": "[Proposed] Appointment feature",
+        "appointment-feature": "Appointment feature",
         "implementation-4": "Implementation",
+        "design-considerations-4": "Design Considerations:",
         "priority-feature": "Priority feature",
         "implementation-5": "Implementation",
         "design-consideration": "Design Consideration:",
@@ -77,6 +78,7 @@
         "appendix-planned-enhancements": "Appendix: Planned Enhancements",
         "appendix-effort": "Appendix: Effort",
         "appendix-instructions-for-manual-testing": "Appendix: Instructions for manual testing",
+        "feature-to-show": "Feature to show",
         "launch-and-shutdown": "Launch and shutdown",
         "deleting-a-person": "Deleting a person",
         "saving-data": "Saving data",
@@ -85,7 +87,7 @@
         "find-customers": "Find customers",
         "update-remark-of-a-customer": "Update remark of a customer",
         "updating-priority-of-a-customer": "Updating priority of a customer",
-        "feature-to-show": "Feature to show"
+        "updating-appointment-of-a-customer-3": "Updating appointment of a customer"
       },
       "headingKeywords": {}
     },
