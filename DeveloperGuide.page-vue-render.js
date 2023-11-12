@@ -680,10 +680,10 @@ with(this){return _c('h4',{attrs:{"id":"updating-remark-of-a-customer"}},[_v("Up
 with(this){return _c('p',[_c('strong',[_v("Use Case: UC10 - update remark of a customer")])])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Mss:")]),_c('br'),_v("\n 1. User requests to list out the customers."),_c('br'),_v("\n 2. System displays the requested list of customers to the user."),_c('br'),_v("\n 3. User enters index and remark of the target customer."),_c('br'),_v("\n 4. System updates the remark of specified customer accordingly."),_c('br'),_v("\n 5. System displays the details of the updated customer."),_c('br'),_v("\n Use case ends."),_c('br')])}
+with(this){return _c('p',[_c('strong',[_v("Mss:")]),_c('br'),_v("\n 1. User requests a list of customers by "),_c('u',[_v("filtering customers(UC02)")]),_v("."),_c('br'),_v("\n 2. User enters index and remark of the target customer."),_c('br'),_v("\n 3. System updates the remark of specified customer accordingly."),_c('br'),_v("\n 4. System displays the details of the updated customer."),_c('br'),_v("\n Use case ends."),_c('br')])}
 },function anonymous(
 ) {
-with(this){return _c('p',[_c('strong',[_v("Extensions:")]),_c('br'),_v("\n 3a. User provided invalid index or information."),_c('br'),_v("\n  3a1. System displays an error message to alert the User."),_c('br'),_v("\n  Use case ends."),_c('br'),_v("\n 3b. User provided remark that will not update the specified customer."),_c('br'),_v("\n  3b1. Systems displays an error message to alert the User."),_c('br'),_v("\n  Use case ends."),_c('br')])}
+with(this){return _c('p',[_c('strong',[_v("Extensions:")]),_c('br'),_v("\n 2a. User provided invalid index or information."),_c('br'),_v("\n  2a1. System displays an error message to alert the User."),_c('br'),_v("\n  Use case ends."),_c('br'),_v("\n 2b. User provided remark that will not update the specified customer."),_c('br'),_v("\n  2b1. Systems displays an error message to alert the User."),_c('br'),_v("\n  Use case ends."),_c('br')])}
 },function anonymous(
 ) {
 with(this){return _c('h2',{attrs:{"id":"non-functional-requirements"}},[_v("Non-Functional Requirements"),_c('a',{staticClass:"fa fa-anchor",attrs:{"href":"#non-functional-requirements","onclick":"event.stopPropagation()"}})])}
@@ -905,6 +905,6 @@ with(this){return _c('ol',[_c('li',[_v("Test case : "),_c('code',{pre:true,attrs
 with(this){return _c('p',[_c('em',[_v("{ more test cases …​ }")])])}
 },function anonymous(
 ) {
-with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Sat, 11 Nov 2023, 22:35:54 GMT+8]")])])])}
+with(this){return _c('footer',[_c('div',{staticClass:"text-center"},[_c('small',[_v("["),_c('span',[_c('strong',[_v("Powered by")])]),_v(" "),_c('img',{attrs:{"src":"https://markbind.org/favicon.ico","width":"30"}}),_v(" "),_c('a',{attrs:{"href":"https://markbind.org/"}},[_v("MarkBind 5.1.0")]),_v(", generated on Sun, 12 Nov 2023, 9:37:39 GMT+8]")])])])}
 }];
   
