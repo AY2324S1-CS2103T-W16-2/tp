@@ -3,7 +3,7 @@
 
 box Logic LOGIC_COLOR_T1
 participant ": InsuranceCommand" as command LOGIC_COLOR
-participant ": CommandResult" as result LOGIC_COLOR
+participant "r: CommandResult" as result LOGIC_COLOR
 participant ": UpdatePersonInsuranceDescriptor" as descriptor LOGIC_COLOR
 end box
 
@@ -47,7 +47,7 @@ command -> model : setPerson(personToUpdate, updatedPerson)
 create result
 command -> result
 activate result
-return result
+return r
 
 
 
@@ -58,5 +58,5 @@ return result
 
 
 
-[<-- command : result
+[<-- command : r
 @enduml

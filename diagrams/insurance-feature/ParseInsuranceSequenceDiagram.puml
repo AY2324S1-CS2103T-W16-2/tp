@@ -3,8 +3,8 @@
 
 
 participant ": InsuranceCommandParser" as parser LOGIC_COLOR
-participant ": UpadatePersonInsuranceDescriptor" as descriptor LOGIC_COLOR
-participant ": InsuranceCommand" as command LOGIC_COLOR
+participant "d: UpdatePersonInsuranceDescriptor" as descriptor LOGIC_COLOR
+participant "c: InsuranceCommand" as command LOGIC_COLOR
 
 [-> parser : parse("1 ai/car insurance\n di/health insurance")
 |||
@@ -16,7 +16,7 @@ parser -> descriptor
 note right : contains the insurances \nto add and delete from customer
 activate descriptor
 |||
-return descriptor
+return d
 |||
 parser -> descriptor : hasInsuranceToUpdate()
 return
@@ -29,7 +29,7 @@ create command
 parser -> command : new InsuranceCommand(1, descriptor)
 activate command
 |||
-return command
+return c
 
-[<--parser : command
+[<--parser : c
 @enduml
