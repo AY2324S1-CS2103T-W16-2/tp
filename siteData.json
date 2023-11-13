@@ -133,7 +133,7 @@
       "src": "UserGuide.md",
       "title": "User Guide",
       "headings": {
-        "ezcontact": "EzContact",
+        "ezcontact-user-guide": "EzContact User Guide",
         "introduction": "Introduction",
         "quick-start": "Quick start",
         "ui-layout-description": "UI Layout Description",
