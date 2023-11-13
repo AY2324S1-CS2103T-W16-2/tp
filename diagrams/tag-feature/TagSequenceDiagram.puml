@@ -6,7 +6,7 @@ participant ":LogicManager" as LogicManager LOGIC_COLOR
 participant ":AddressBookParser" as AddressBookParser LOGIC_COLOR
 participant ":TagCommandParser" as TagCommandParser LOGIC_COLOR
 participant "t:TagCommand" as TagCommand LOGIC_COLOR
-participant "result:CommandResult" as CommandResult LOGIC_COLOR
+participant "r:CommandResult" as CommandResult LOGIC_COLOR
 
 [-> LogicManager : execute("tag 1 at/tall \ndt/short at/handsome")
 activate LogicManager
@@ -28,7 +28,7 @@ create TagCommand
 TagCommandParser -> TagCommand
 activate TagCommand
 
-TagCommand --> TagCommandParser : t
+TagCommand --> TagCommandParser
 deactivate TagCommand
 
 TagCommandParser --> AddressBookParser : t
@@ -48,15 +48,15 @@ create CommandResult
 TagCommand -> CommandResult
 activate CommandResult
 
-CommandResult --> TagCommand : result
+CommandResult --> TagCommand
 deactivate CommandResult
 
-TagCommand --> LogicManager : result
+TagCommand --> LogicManager : r
 deactivate TagCommand
 'Hidden arrow to position the destroy marker below the end of the activation bar.
 TagCommand -[hidden]-> LogicManager
 destroy TagCommand
 
-[<--LogicManager : result
+[<--LogicManager : r
 deactivate LogicManager
 @enduml
