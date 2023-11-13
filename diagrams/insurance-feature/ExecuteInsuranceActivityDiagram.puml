@@ -1,0 +1,25 @@
+@startuml
+skin rose
+skinparam ActivityFontSize 15
+skinparam ArrowFontSize 12
+start
+:User provides index of the targeted
+customer in the displayed list;
+
+if () then
+    :User provides insurances to add to and/or \ndelete from the targeted customer;
+    if () then
+        :System update insurances of targeted customer;
+        if () then
+        :System saves updated customer to Model;
+        else ([updated customer's insurance set is invalid])
+            stop
+        endif
+        stop
+    else ([insurances provided are invalid])
+        stop
+    endif
+else ([index provided is invalid])
+    stop
+endif
+@enduml
