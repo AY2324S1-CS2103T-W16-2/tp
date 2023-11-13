@@ -19,7 +19,7 @@ AppointmentCommand -> AppointmentCommand: verifyCommandExecutable(m)
 ref over AppointmentCommand, Model: retrieve information required\n(i.e. personToEdit, appointment)
 |||
 
-AppointmentCommand -> PersonClass: createPersonWithEditedAppointment(personToUpdate, appointment)
+AppointmentCommand -> PersonClass: createPersonWithEditedAppointment(personToEdit, appointment)
 activate PersonClass
 
 create Person
