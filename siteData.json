@@ -86,7 +86,8 @@
         "find-customers": "Find customers",
         "update-remark-of-a-customer": "Update remark of a customer",
         "updating-priority-of-a-customer": "Updating priority of a customer",
-        "updating-appointment-of-a-customer-3": "Updating appointment of a customer"
+        "updating-appointment-of-a-customer-3": "Updating appointment of a customer",
+        "editing-a-customer-2": "Editing a customer"
       },
       "headingKeywords": {}
     },
